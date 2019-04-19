@@ -1,0 +1,60 @@
+@import 'bourbon/bourbon';
+@import 'mixins';
+
+/*
+  - Fonts
+  - Colors
+  - Buttons
+  - Nav Icon
+
+*/
+
+
+// FONTS
+@include font-face('gotham-light','../fonts/gotham/Gotham-Light');
+@include font-face('gotham-book', '../fonts/gotham/Gotham-Book');
+@include font-face('gotham-medium', '../fonts/gotham/Gotham-Medium');
+
+// COLORS
+$white:     #fff;
+$ltgray:    #dcdcdc;
+$dkgray:    #555759;
+$black:     #000;
+$ltblue:    #00a6cf;
+
+
+// BUTTONS
+.btn { border-radius: 0; box-shadow: none; text-shadow: none; border: none;
+  .barefoot-btn   { }
+  .brighton-btn   { }
+  .midtown-btn    { }
+  .solterra-btn   { }
+  .sterling-btn   { }
+}
+
+// NAV ICON
+$button-width:    26px;
+$button-height:   18px;
+$bar-thickness:   3px;
+
+.navbtn-container { width: 80px; height: 160px; position: absolute; right: 0; top: 0;
+  .nav-btn { background: transparent; border: none; border-radius: 0; cursor: pointer;
+    width: $button-width; height: $button-height; position: absolute; left: 50%; top: 40px; transform: translate(-50%,-50%) rotate(0deg);
+    &:focus { outline: 0; }
+    .nav-iconbar { display: block; position: absolute; height: $bar-thickness; width: 100%; background: $dkgray; opacity: 1; left: 0; top: 0;
+      transform: rotate(0deg); transition: 0.25s ease-in-out;
+      &:nth-child(1) { top: 0; }
+      &:nth-child(2),
+      &:nth-child(3) { top: 9px; }
+      &:nth-child(4) { top: 18px; }
+    }
+    &.open {
+      .nav-iconbar {
+        &:nth-child(1) { top: 12px; opacity: 0; }
+        &:nth-child(2) { transform: rotate(-45deg); transition-delay: .3s; }
+        &:nth-child(3) { transform: rotate(45deg); transition-delay: .3s; }
+        &:nth-child(4) { top: 12px; opacity: 0; }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import 'design';
+
+/*
+  - Generic Styles
+  - Header
+  - Body
+*/
+
+// Generic Styles
+body { width: 100vw; height: 100vh; font-family: 'gotham-book',sans-serif; color: $dkgray; overflow: hidden; }
+
+
+// Header
+header.sidebar-header { width: 260px; height: 100vh; position: fixed; left: 0; top: 0; z-index: 99; background: $white; transition: transform 666ms ease-in-out;
+  box-shadow: 4px 0 5px rgba(0,0,0,.15);
+  .navbtn-container{
+    .legend { text-transform: uppercase; transform: rotate(-90deg) translateY(-100%); position: absolute; left: 50%; top: 50%; color: $dkgray; transition: opacity 666ms ease-in-out;
+      font-family: 'gotham-medium', sans-serif;
+      &.hidden { opacity: 0; }
+    }
+  }
+  &.collapsed { transform: translateX(-180px);
+    .brand-logo { position: absolute; left: 85%; top: 50%; transform: translate(-50%,-50%); transition: opacity 666ms ease-in-out;
+      &.collapsed { opacity: 1; max-width: 7%; }
+      &.expanded { opacity: 0; left: 50%; top: 120px; max-width: 77%; }
+    }
+    .icon-nav { display: none; position: absolute; left: 50%; top: 220px; transform: translateX(-50%);
+      a { display: block; text-align: center; text-transform: uppercase; color: $dkgray; font-size: .9em; margin-bottom: 30px;
+        img { width: 50%; margin-bottom: 6px; }
+      }
+    }
+  }
+  &.expanded  { transform: translateX(0);
+    .brand-logo {
+      &.collapsed { opacity: 0; }
+      &.expanded  { opacity: 1; }
+    }
+    .icon-nav { display: block; }
+  }
+}
+
+.mainpage-section { background: $white url('../images/map-background@2x.jpg') no-repeat left top; background-size: cover; width: 100vw; height: 100vh; position: relative;
+  .community-button { position: absolute; display: block; max-width: 378px;
+    .community-button-image { max-width: 100%; }
+    &.barefoot-lakes-button      { left: 375px; top: 52px; }
+    &.brighton-crossings-button  { left: 930px; top: 142px; }
+    &.midtown-button             { left: 236px; top: 427px; }
+    &.solterra-button            { left: 128px; top: 599px; }
+    &.sterling-ranch-button      { left: 179px; top: 809px; }
+
+  }
+}
+
+.community-section { width: 100vw; height: 100vh; position: relative;
+  .portfolio-container { background: rgba(255,255,255,.8); height: 30vh; width: 100vw; position: absolute; bottom: 0; left: 0; transition: transform 666ms ease-in-out;
+    .expand-portfolios { position: absolute; left: 50%; top: -36px; transform: translateX(-50%); padding: 8px 30px 6px 15px; text-transform: uppercase; font-size: .95em;
+      background: rgba(255,255,255,.8); border-radius: 4px 4px 0 0; border: none; color: $dkgray;
+      .spin { position: absolute; right: 10px; top: 12px; width: 12px; height: 12px; transform-origin: center center; transform: rotate(0deg);
+        transition: transform 666ms ease-in-out;
+        img { vertical-align: top; }
+      }
+      &:focus { box-shadow: none; border: none; outline: none; }
+    }
+
+    &.closed { transform: translateY(30vh);
+      .expand-portfolios {
+        .spin { transform: rotate(-180deg); }
+      }
+    }
+  }
+}
+
+//footer { position: fixed; left: 0; bottom: 0; width: 100vw; z-index: 1; }
